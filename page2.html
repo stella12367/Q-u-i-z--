@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <center>
+      <h1>QUIZ of GENERAL KNOWLEDGE</h1>
+      
+      <div style="background-color: lightgreen; width: 500px; height: 900px;">
+      <h2>Score: <span id="scoreDisplay">0</span> / 5</h2>
+
+    
+      <p>11.in welke datum zijn we nu</p>
+      <button class="q1-btn" onclick="checkAnswer(this, false)">2025</button>
+      <button class="q1-btn" onclick="checkAnswer(this, true)">de datum waar we nu zijn</button>
+      <br><p>of</p>
+      <button class="q1-btn" onclick="checkAnswer(this, false)">dit jaar</button>
+      
+      <p>12.niet antwoorden</p>
+      <button class="q2-btn" onclick="checkAnswer(this, true)">wis je emails</button>
+      <button class="q2-btn" onclick="checkAnswer(this, true)">chips</button>
+      <button class="q2-btn" onclick="checkAnswer(this, true)">12345678910121314151617181920</button>
+      <button class="q2-btn" onclick="checkAnswer(this, true)">:D</button>
+
+     <p>13.wat is de 32 woord van fünfhundertfünfundfünfzigmillionen fünfhundertfünfundfünfzigtausend fünfhundertfünfundfünfzig</p>
+     <button class="q3-btn" onclick="checkAnswer(this, false)">i</button>
+     <button class="q3-btn" onclick="checkAnswer(this, false)">e</button>
+     <button class="q3-btn" onclick="checkAnswer(this, true)" >n</button>
+     <button class="q3-btn" onclick="checkAnswer(this, false)">d</button>
+    
+    <p>14.wat is bassa's voor moeder</p>
+    <button class="q4-btn" onclick="checkAnswer(this, false)">Okok</button>
+    <button class="q4-btn" onclick="checkAnswer(this, false)">Mbongo Tchobi</button>
+    <button class="q4-btn" onclick="checkAnswer(this, false)">njah</button>
+    <button class="q4-btn" onclick="checkAnswer(this, true)">nyɔ́g</button>
+    <p>15.wat is javascript</p>
+    <button class="q5-btn" onclick="checkAnswer(this, false)">print("")</button>
+    <button class="q5-btn" onclick="checkAnswer(this, true)">console.log("");</button>
+    <button class="q5-btn" onclick="checkAnswer(this, false)">pusp("")</button>
+    <button class="q5-btn" onclick="checkAnswer(this, false)">:[](''):</button>
+   
+   <br>
+   <br>
+   <button><a href="index.html">om terug te gaan</a></button>
+
+
+
+    <script>
+      let score = 0;
+
+      function checkAnswer(button, isCorrect) {
+        // Bepaal de klasse van de knop om te zien bij welke vraag deze hoort
+        const btnClass = button.className;
+        
+        // Zoek alle knoppen van dezelfde vraag
+        const siblingButtons = document.getElementsByClassName(btnClass);
+
+        if (isCorrect) {
+          score++;
+          document.getElementById('scoreDisplay').textContent = score;
+          button.style.backgroundColor = '#2ecc71'; // Groen
+          button.style.color = 'purple';
+          alert('Correct!');
+        } else {
+          button.style.backgroundColor = '#e74c3c'; // Rood
+          button.style.color = 'purple';
+          alert('Incorrect');
+        }
+
+        // Schakel alle knoppen van deze specifieke vraag uit
+        for (let btn of siblingButtons) {
+          btn.disabled = true;
+        }
+      }
+    </script>
+  </body>
+</html>
+  
